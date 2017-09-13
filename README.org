@@ -1,0 +1,72 @@
+#+OPTIONS: toc:nil num:nil author:nil date:nil creator:nil
+#+TITLE: Org-capture for Firefox
+
+* Description
+
+  This extension is a bridge between Firefox and [[http://orgmode.org][org-mode]] trough
+  [[http://orgmode.org/worg/org-contrib/org-protocol.html][org-protocol]].
+
+  It avoids the painful process of adding an handler for the
+  =org-protocol://= scheme.
+
+** Features
+
+   - Hotkey (~C-M-r~ or ~accel-alt-r~ in Firefox terms),
+   - Open a new emacsclient window,
+   - Configurable default template (one of the shortcut letters defined
+     in ~org-capture-templates~, see [[http://orgmode.org/manual/Capture-templates.html][Capture templates]]),
+   - Configurable sub-protocol (see [[http://orgmode.org/worg/org-tutorials/org-protocol-custom-handler.html][Defining custom handlers]]).
+
+* Download
+
+  See the AMO page: https://addons.mozilla.org/fr/firefox/addon/org-mode-capture/
+
+  Or directly, using:
+  - file:org-capture-0.3.0.xpi
+  - file:org-capture-0.2.xpi
+  - file:org-capture-0.1.xpi
+
+* Usage
+
+Add to your org-mode configuration a template capture like the
+following example:
+
+#+begin_src emacs-lisp
+(setq org-capture-templates
+      (quote (
+              ("x" "org-protocol" entry (file "~/web.org")
+               "* TODO Review %c\n%U\n%i\n" :immediate-finish))))
+#+end_src
+
+Install ~org-capture~ and configure it to use your template id (in
+this case ~x~ for the ~capture~ sub-protocol).
+
+* Build
+
+  If you just want to have a look to the source code, you may browse the
+  repository on http://hub.darcs.net/oschwand/firefox-org-capture.
+
+  Get the sources with [[http://darcs.net][darcs]]:
+
+#+begin_src sh
+  darcs get http://chadok.info/darcs/firefox-org-capture/
+#+end_src
+
+  And then, with the Firefox [[https://developer.mozilla.org/en-US/Add-ons/SDK][sdk]] enabled:
+
+#+begin_src sh
+  cd firefox-org-capture
+  make
+#+end_src
+
+* Bugs
+
+  - The selection buffer for org-capture is not cleared when the
+    selection is canceled in Firefox.
+  - Disabling and enabling the extension is needed to take a change in
+    the hotkey into account.
+
+* Contacts
+
+  Please send any comment or bug report to [[mailto:olivier.schwander@ens-lyon.org][Olivier Schwander]].
+

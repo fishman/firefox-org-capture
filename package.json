@@ -1,0 +1,72 @@
+{
+    "name": "org-capture",
+    "title": "Org-mode Capture",
+    "id": "jid1-3FQ9OGtE8VwULA",
+    "description": "Take notes and register bookmarks in Org-mode with Org-protocol",
+    "author": "Olivier Schwander <olivier.schwander@ens-lyon.org>",
+    "license": "MPL 2.0",
+    "version": "0.3.0",
+    "icon": "data/org-mode.png",
+    "homepage": "http://chadok.info/firefox-org-capture",
+    "permissions": {
+        "private-browsing": false
+    },
+    "preferences": [
+        {
+            "name": "emacsclient",
+            "title": "Emacsclient",
+            "description": "Path to emacsclient binary",
+            "type": "file",
+            "value": "/usr/bin/emacsclient"
+        },
+        {
+            "name": "template",
+            "title": "Template",
+            "description": "Default template (shortcut letter as defined in org-capture-templates)",
+            "type": "string",
+            "value": ""
+        },
+        {
+            "name": "subprotocol",
+            "title": "Sub-protocol",
+            "description": "Name of the sub-protocol you want to use. By default, 'store-link', 'capture', 'remember' and 'open-source' are available, but you can define your own if you want.",
+            "type": "string",
+            "value": "capture"
+        },
+        {
+            "name": "newwindow",
+            "title": "Open a new window",
+            "description": "Launch emacsclient with the -c flag",
+            "type": "bool",
+            "value": true
+        },
+        {
+            "name": "key",
+            "title": "Hotkey",
+            "description": "Capture the current page",
+            "type": "string",
+            "value": "accel-alt-r"
+        },
+        {
+            "name": "format",
+            "type": "radio",
+            "title": "Capture format",
+            "value": "text",
+            "options": [
+                {
+                    "value": "text",
+                    "label": "Text"
+                },
+                {
+                    "value": "links",
+                    "label": "Text with links (experimental)"
+                },
+                {
+                    "value": "html",
+                    "label": "Raw HTML"
+                }
+            ]
+        }
+    ]
+}
+
