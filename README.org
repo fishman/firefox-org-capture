@@ -1,5 +1,5 @@
 #+OPTIONS: toc:nil num:nil author:nil date:nil creator:nil
-#+TITLE: Org-capture for Firefox
+#+TITLE: Org-capture for Firefox and Palemoon
 
 * Description
 
@@ -46,16 +46,17 @@ this case ~x~ for the ~capture~ sub-protocol).
   If you just want to have a look to the source code, you may browse the
   repository on http://hub.darcs.net/oschwand/firefox-org-capture.
 
-  Get the sources with [[http://darcs.net][darcs]]:
+  Get the sources:
 
 #+begin_src sh
-  darcs get http://chadok.info/darcs/firefox-org-capture/
+  git clone git://github.com/fishman/firefox-org-capture
 #+end_src
 
   And then, with the Firefox [[https://developer.mozilla.org/en-US/Add-ons/SDK][sdk]] enabled:
 
 #+begin_src sh
   cd firefox-org-capture
+  npm install
   make
 #+end_src
 
