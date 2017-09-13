@@ -118,18 +118,18 @@ function capture() {
     var subProtocol = prefs["subprotocol"];
     if (subProtocol == "capture") {
         if (prefs['template'] == "")
-            uri = "org-protocol://"+subProtocol+"://"+url+'/'+title+'/';
+            uri = "org-protocol://"+subProtocol+"?url="+url+'&title='+title;
         else
-            uri = "org-protocol://"+subProtocol+"://"+prefs["template"]+'/'+url+'/'+title+'/';
+            uri = "org-protocol://"+subProtocol+"?template="+prefs["template"]+'&url='+url+'&title='+title;
     } else {
-        uri = "org-protocol://"+subProtocol+"://"+url+'/'+title+'/';
+        uri = "org-protocol://"+subProtocol+"?url="+url+'&title='+title;
     }
 
     switch (prefs["format"]) {
     case "text":
         if (selected) {
             selected = encodeURIComponent(selected);
-            uri = uri + selected;
+            uri = uri + '&body=' + selected;
         }
         break;
     case "links":
@@ -137,13 +137,13 @@ function capture() {
             var filtered = filterHTML(selected_html);
 
             selected = encodeURIComponent(filtered);
-            uri = uri + selected;
+            uri = uri + '&body=' + selected;
         }
         break;
     case "html":
         if (selected_html) {
             selected = encodeURIComponent(selected_html);
-            uri = uri + selected;
+            uri = uri + '&body=' + selected;
         }
         break;
     }

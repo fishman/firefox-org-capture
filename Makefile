@@ -1,4 +1,4 @@
-CFX = cfx
+JPM = jpm
 NAME=$(shell grep name package.json | sed 's/.*: "\(.*\)",/\1/' | head -n1)
 VERSION=$(shell grep version package.json | sed 's/.*: "\(.*\)",/\1/')
 XPI=$(NAME)-$(VERSION).xpi
@@ -9,12 +9,12 @@ ORG=README.org
 all: xpi README
 
 run:
-	$(CFX) run
+	$(JPM) run
 
 xpi: $(XPI)
 
 $(XPI): package.json $(wildcard lib/*) $(wildcard data/*)
-	$(CFX) xpi
+	$(JPM) xpi
 	mv $(NAME).xpi $(XPI)
 
 README: README.txt
